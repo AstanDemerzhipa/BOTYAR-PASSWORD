@@ -16,6 +16,14 @@ async def hello(ctx):
     await ctx.send(f'Привет! Я бот {bot.user}!')
 
 @bot.command()
+async def bye(ctx):
+    await ctx.send(f'Пока')
+
+@bot.command()
+async def sangulia(ctx):
+    await ctx.send(f'САНГУЛИЯ ДВА!')
+
+@bot.command()
 async def add(ctx, left: int, right: int):
     await ctx.send(left + right)
 
@@ -33,4 +41,4 @@ async def choose(ctx, *choices: str):
 async def heh(ctx, count_heh = 5):
     await ctx.send("he" * count_heh)
 
-bot.run(token")
+bot.run("this is token")
