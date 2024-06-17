@@ -16,6 +16,20 @@ async def hello(ctx):
     await ctx.send(f'Привет! Я бот {bot.user}!')
 
 @bot.command()
+async def list_commands(ctx):
+    embed = discord.Embed(title="Список команд", description="Список доступных команд бота", color=0x00ff00)
+
+    embed.add_field(name="$hello", value="Приветствие от бота", inline=False)
+    embed.add_field(name="$bye", value="Прощание", inline=False)
+    embed.add_field(name="$sangulia", value="Отправляет сообщение 'САНГУЛИЯ ДВА!'", inline=False)
+    embed.add_field(name="$add [число1] [число2]", value="Складывает два числа", inline=False)
+    embed.add_field(name="$joined [упоминание_пользователя]", value="Показывает, когда пользователь присоединился к серверу", inline=False)
+    embed.add_field(name="$choose [вариант1] [вариант2] ...", value="Выбирает один из предложенных вариантов", inline=False)
+    embed.add_field(name="$heh [количество]", value="Отправляет 'he' заданное количество раз", inline=False)
+
+    await ctx.send(embed=embed)
+
+@bot.command()
 async def bye(ctx):
     await ctx.send(f'Пока')
 
@@ -41,4 +55,4 @@ async def choose(ctx, *choices: str):
 async def heh(ctx, count_heh = 5):
     await ctx.send("he" * count_heh)
 
-bot.run("this is token")
+bot.run("Тут токен друг")
